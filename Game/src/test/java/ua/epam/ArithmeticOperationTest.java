@@ -1,8 +1,8 @@
 package ua.epam;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import org.junit.rules.ExpectedException;
+import org.junit.rules.Timeout;
 
 import static org.junit.Assert.*;
 
@@ -15,6 +15,10 @@ public class ArithmeticOperationTest {
     public void runT(){
         a = new ArithmeticOperation();
     }
+    @Rule
+    public final ExpectedException exp = ExpectedException.none();
+    @Rule
+    public Timeout time = Timeout.millis(1000);
 
     @Test
     public void testAdd() throws Exception {
@@ -28,6 +32,7 @@ public class ArithmeticOperationTest {
         double res =a.mult(3,7);
         Assert.assertEquals(res,21.0,1e-15);
     }
+    @Ignore
     @Test
     public void testDeduct() throws Exception {
 
@@ -42,16 +47,19 @@ public class ArithmeticOperationTest {
 
 
     }
-    @Test(expected=ArithmeticException.class)
+    /*@Test(expected=ArithmeticException.class)*/
+
+    @Test
     public void testDivExaption(){
+        exp.expect(ArithmeticException.class);
         a.div(9.0,0.0);
     }
-    @Test(timeout = 1000)
-    public void testN(){
-        a.div(9.0,9.0);
+    @Test
+    public void testN() {
+        while (true) {
 
-}
+        }
 
 
-
+    }
 }
