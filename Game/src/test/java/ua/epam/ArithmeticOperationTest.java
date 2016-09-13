@@ -48,7 +48,7 @@ public class ArithmeticOperationTest {
     }
     @Test(timeout = 1000)
     public void testN(){
-        while (true);
+        a.div(9.0,9.0);
 
 }
 
