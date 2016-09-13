@@ -46,7 +46,11 @@ public class ArithmeticOperationTest {
     public void testDivExaption(){
         a.div(9.0,0.0);
     }
+    @Test(timeout = 1000)
+    public void testN(){
+        while (true);
 
+}
 
 
 
