@@ -1,5 +1,6 @@
 package ua.epam;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,7 +11,9 @@ import static org.junit.Assert.*;
 public class ArithmeticOperationTest {
     @Test
     public void add() throws Exception {
-
+        ArithmeticOperation a = new ArithmeticOperation();
+        double res =a.add(3,7);
+        if (res!=10) Assert.fail();
     }
 
 }
