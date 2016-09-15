@@ -1,2 +1,0 @@
-print("hh");
-int =3;
