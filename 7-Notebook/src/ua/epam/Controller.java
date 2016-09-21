@@ -1,5 +1,6 @@
 package ua.epam;
 
+import ua.epam.Model.Entity.Adress;
 import ua.epam.Model.Entity.Notebook;
 
 import java.lang.reflect.Field;
@@ -23,7 +24,8 @@ public class Controller {
     public static final String REG_CELLPHONE = "(\\(\\d{3}\\)-\\d{2}-\\d{2}-\\d{3})?(\\d{10,12})?(^[+]\\d{3,12})?";
     public static final String REG_EMAIL = "[\\w.%-]+@[\\w]+\\.[A-Za-z]{2,4}";
     public static  String REG_GROUP = "(HOME)|(WORK)|(SHOP)|(SERVICE)";
-    public static final String REG_DATA = "(\\d{2})/(\\d{2})/(\\d{4})?(\\d{2}):(\\d{2}):(\\d{4})";
+    public static final String REG_DATA = "((\\d{2})/(\\d{2})/(\\d{4}))?(\\d{2}):(\\d{2}):(\\d{4})";
+    public static final String REG_ADRESS = "\\d{1,5}/([A-Z][a-z]+)/([A-Z][a-z]+)/\\d{1,5}/\\d{1,5}";
 
 
 
@@ -49,7 +51,7 @@ public class Controller {
 //        chekSetInputGroup();
 //        chekSetInputData();
 //        chekSetChangeData();
-
+        chekSetAdress();
 
     }
 
@@ -224,12 +226,25 @@ public class Controller {
     }
 
 
-//12.	Адрес, состоящий из:
-//            - Индекс
-//- город проживания
-//- улица
-//- номер дома
-//- номер квартиры
+    public void chekSetAdress() {
+
+        while (!inp) {
+            view.printMessage(View.INPUT_ADRESS);
+            if (inputRegAdress(scanner())) {
+                notebook.setAdress(new Adress(notebook.getTemp()));
+                inp = true;
+            } else {
+                view.printMessage(View.INPUT_WRONG);
+            }
+        }
+    }
+
+
+
+
+
+
+
 
 
     public boolean inputRegText(String text) {
@@ -287,6 +302,24 @@ public class Controller {
         }
         return text.matches(REG_DATA);
     }
+
+    public boolean inputRegAdress(String text) {
+        if (text.matches(REG_ADRESS)) {
+            notebook.setTemp(text);
+        }
+        return text.matches(REG_ADRESS);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     public String scanner() {

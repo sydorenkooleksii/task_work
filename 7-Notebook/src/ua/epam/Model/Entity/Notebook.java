@@ -20,12 +20,11 @@ public class Notebook {
     private String data;
     private String dataOfChange;
     private Group group;
+    private Adress adress;
 
 
 
     private String temp;
-
-
 
 
 
@@ -142,6 +141,31 @@ public class Notebook {
     public void setDataOfChange(String dataOfChange) {
         this.dataOfChange = dataOfChange;
     }
+    public Adress getAdress() {
+        return adress;
+    }
 
+    public void setAdress(Adress adress) {
+        this.adress = adress;
+    }
 
+    @Override
+    public String toString() {
+        return "Notebook{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", daddyname='" + daddyname + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", comment='" + comment + '\'' +
+                ", homephone='" + homephone + '\'' +
+                ", cellphone='" + cellphone + '\'' +
+                ", cellphone2='" + cellphone2 + '\'' +
+                ", email='" + email + '\'' +
+                ", skype='" + skype + '\'' +
+                ", data='" + data + '\'' +
+                ", dataOfChange='" + dataOfChange + '\'' +
+                ", group=" + group +
+                "," + adress.toString() +
+                '}';
+    }
 }

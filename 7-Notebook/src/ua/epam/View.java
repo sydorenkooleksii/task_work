@@ -19,6 +19,7 @@ public class View {
     public static final String INPUT_GROUP = "Please enter your one Group from (HOME,WORK,SHOP,SERVICE): ";
     public static final String INPUT_DATA = "Please enter your registration data like dd/mm/yyyy or dd:mm:yyyy : ";
     public static final String INPUT_CHANGE_DATA = "Please enter your changes data dd/mm/yyyy or dd:mm:yyyy: ";
+    public static final String INPUT_ADRESS = "Please enter your Adress like index/city/street/number of house/apartment : ";
 
 
 

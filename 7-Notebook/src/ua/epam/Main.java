@@ -12,9 +12,8 @@ public class Main {
         Notebook notebook = new Notebook();
         Controller controller = new Controller(notebook,view);
 
-
         controller.processUser();
-//        view.printMessage(notebook.toString());
+       view.printMessage(notebook.toString());
 
     }
 }
