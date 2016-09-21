@@ -14,7 +14,7 @@ public class Main {
 
 
         controller.processUser();
-
+//        view.printMessage(notebook.toString());
 
     }
 }

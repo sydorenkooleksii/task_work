@@ -5,5 +5,4 @@ package ua.epam;
  */
 public enum Group {
     HOME,WORK,SHOP,SERVICE
-
 }

@@ -14,19 +14,29 @@ public class Controller {
 
     View view = new View();
     Notebook notebook = new Notebook();
-    boolean inp=true ;
-//    Field[] fields = Notebook.class.getDeclaredFields();
-//    fields[0].substring(10);
+    boolean inp = true;
 
-public Controller(Notebook notebook,View view){
-    this.view = view;
-    this.notebook = notebook;
-}
+    public static final String REG_TEXT = "^[A-Z][a-z]+";
+    public static final String REG_TEXT_AND_NUMBER_SHORT = "^[A-Za-z][A-Za-z0-9_]{1,20}$";
+    public static final String REG_TEXT_AND_NUMBER_AND_SYMBOL = "[\\S\\s]{1,150}$";
+    public static final String REG_HOMEPHONE = "(\\(\\d{3}\\)-\\d{3}-\\d{2}-\\d{2})?(\\d{10,12})?(^[+]\\d{3,12})?";
+    public static final String REG_CELLPHONE = "(\\(\\d{3}\\)-\\d{2}-\\d{2}-\\d{3})?(\\d{10,12})?(^[+]\\d{3,12})?";
+    public static final String REG_EMAIL = "[\\w.%-]+@[\\w]+\\.[A-Za-z]{2,4}";
+    public static  String REG_GROUP = "(HOME)|(WORK)|(SHOP)|(SERVICE)";
+    public static final String REG_DATA = "(\\d{2})/(\\d{2})/(\\d{4})?(\\d{2}):(\\d{2}):(\\d{4})";
 
 
 
-    public void processUser(){
-//        chekSetInputName();
+
+
+    public Controller(Notebook notebook, View view) {
+        this.view = view;
+        this.notebook = notebook;
+    }
+
+
+    public void processUser() {
+//       chekSetInputName();
 //        chekSetInputSurname();
 //        chekSetInputDaddyname();
 //        chekSetInputNickname();
@@ -36,172 +46,182 @@ public Controller(Notebook notebook,View view){
 //        chekSetInputCellphone2();
 //        chekSetInputEmail();
 //        chekSetInputSkype();
-        chekSetInputGroup();
-        chekSetInputData();
-        chekSetChangeData();
-
-
+//        chekSetInputGroup();
+//        chekSetInputData();
+//        chekSetChangeData();
 
 
     }
 
 
-
-
-
-
-
-    public void chekSetInputName(){
-        while (inp){
+    public void chekSetInputName() {
+        while (inp) {
             view.printMessage(View.INPUT_NAME);
-        if (inputRegText (scanner())){
-            notebook.setName(notebook.getTemp());
-            inp = false;
-        }else {view.printMessage(View.INPUT_WRONG);
-        }
+            if (inputRegText(scanner())) {
+                notebook.setName(notebook.getTemp());
+                inp = false;
+            } else {
+                view.printMessage(View.INPUT_WRONG);
+            }
         }
     }
 
-    public void chekSetInputSurname(){
+    public void chekSetInputSurname() {
 
-        while (!inp){
+        while (!inp) {
             view.printMessage(View.INPUT_SURNAME);
-            if (inputRegText (scanner())){
+            if (inputRegText(scanner())) {
                 notebook.setSurname(notebook.getTemp());
                 inp = true;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
 
-    public void chekSetInputDaddyname(){
+    public void chekSetInputDaddyname() {
 
-        while (inp){
+        while (inp) {
             view.printMessage(View.INPUT_DADDYNAME);
-            if (inputRegText (scanner())){
+            if (inputRegText(scanner())) {
                 notebook.setDaddyname(notebook.getTemp());
                 inp = false;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
-    public void chekSetInputNickname(){
 
-        while (!inp){
+    public void chekSetInputNickname() {
+
+        while (!inp) {
             view.printMessage(View.INPUT_NICKNAME);
-            if (inputRegTextAndNumberShort (scanner())){
+            if (inputRegTextAndNumberShort(scanner())) {
                 notebook.setNickname(notebook.getTemp());
                 inp = true;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
-    public void chekSetInputComment(){
 
-        while (inp){
+    public void chekSetInputComment() {
+
+        while (inp) {
             view.printMessage(View.INPUT_COMMENT);
-            if (inputRegTextAndNumberAndSymbol (scanner())){
+            if (inputRegTextAndNumberAndSymbol(scanner())) {
                 notebook.setComment(notebook.getTemp());
                 inp = false;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
-    public void chekSetInputHomephone(){
 
-        while (!inp){
+    public void chekSetInputHomephone() {
+
+        while (!inp) {
             view.printMessage(View.INPUT_HOMEPHONE);
-            if (inputRegHomephone (scanner())){
+            if (inputRegHomephone(scanner())) {
                 notebook.setHomephone(notebook.getTemp());
                 inp = true;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
-    public void chekSetInputCellphone(){
 
-        while (inp){
+    public void chekSetInputCellphone() {
+
+        while (inp) {
             view.printMessage(View.INPUT_CELLPHONE);
-            if (inputRegCellphone (scanner())){
+            if (inputRegCellphone(scanner())) {
                 notebook.setCellphone(notebook.getTemp());
                 inp = false;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
-    public void chekSetInputCellphone2(){
 
-        while (!inp){
+    public void chekSetInputCellphone2() {
+
+        while (!inp) {
             view.printMessage(View.INPUT_CELLPHONE2);
-            if (inputRegCellphone (scanner())){
+            if (inputRegCellphone(scanner())) {
                 notebook.setCellphone2(notebook.getTemp());
                 inp = true;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
 
-    public void chekSetInputEmail(){
+    public void chekSetInputEmail() {
 
-        while (inp){
+        while (inp) {
             view.printMessage(View.INPUT_EMAIL);
-            if (inputRegEmail (scanner())){
+            if (inputRegEmail(scanner())) {
                 notebook.setEmail(notebook.getTemp());
                 inp = false;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
-    public void chekSetInputSkype(){
 
-        while (!inp){
+    public void chekSetInputSkype() {
+
+        while (!inp) {
             view.printMessage(View.INPUT_SKYPE);
-            if (inputRegTextAndNumberShort (scanner())){
+            if (inputRegTextAndNumberShort(scanner())) {
                 notebook.setSkype(notebook.getTemp());
                 inp = true;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
 
-    public void chekSetInputGroup(){
+    public void chekSetInputGroup() {
 
-        while (inp){
+        while (inp) {
             view.printMessage(View.INPUT_GROUP);
-            if (inputRegGroup (scanner())){
+            if (inputRegGroup(scanner())) {
                 notebook.setGroup(Group.valueOf(notebook.getTemp()));
                 inp = false;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
 
 
-    public void chekSetInputData(){
+    public void chekSetInputData() {
 
-        while (!inp){
+        while (!inp) {
             view.printMessage(View.INPUT_DATA);
-            if (inputRegData (scanner())){
+            if (inputRegData(scanner())) {
                 notebook.setData(notebook.getTemp());
                 inp = true;
-            }else {view.printMessage(View.INPUT_WRONG);
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
 
-    public void chekSetChangeData(){
+    public void chekSetChangeData() {
 
-        while (inp){
+        while (inp) {
             view.printMessage(View.INPUT_CHANGE_DATA);
-            if (inputRegData (scanner())){
+            if (inputRegData(scanner())) {
                 notebook.setDataOfChange(notebook.getTemp());
-                inp =false;
-            }else {view.printMessage(View.INPUT_WRONG);
+                inp = false;
+            } else {
+                view.printMessage(View.INPUT_WRONG);
             }
         }
     }
-
-
 
 
 //12.	Адрес, состоящий из:
@@ -212,65 +232,61 @@ public Controller(Notebook notebook,View view){
 //- номер квартиры
 
 
-
-
-
-
-    public boolean inputRegText (String text){
-        if (text.matches("[A-Z][a-z]+")){
+    public boolean inputRegText(String text) {
+        if (text.matches(REG_TEXT)) {
             notebook.setTemp(text);
         }
-        return text.matches("[A-Z][a-z]+");
+        return text.matches(REG_TEXT);
     }
 
-    public boolean inputRegTextAndNumberShort (String text){
-        if (text.matches("[A-Za-z][A-Za-z0-9_]{1,15}$")){
+    public boolean inputRegTextAndNumberShort(String text) {
+        if (text.matches(REG_TEXT_AND_NUMBER_SHORT)) {
             notebook.setTemp(text);
         }
-        return text.matches("[A-Za-z][A-Za-z0-9_]{1,15}$");
-    }
-    public boolean inputRegTextAndNumberAndSymbol (String text){
-        if (text.matches("[\\S\\s]{1,150}$")){
-            notebook.setTemp(text);
-        }
-        return text.matches("[\\S\\s]{1,150}$");
-    }
-    public boolean inputRegHomephone (String text){
-        if (text.matches("\\d{3}-\\d{3}-\\d{2}-\\d{2}")){
-            notebook.setTemp(text);
-        }
-        return text.matches("\\d{3}-\\d{3}-\\d{2}-\\d{2}");
+        return text.matches(REG_TEXT_AND_NUMBER_SHORT);
     }
 
-    public boolean inputRegCellphone (String text){
-        if (text.matches("^\\(\\d{3}\\)-\\d{2}-\\d{2}-\\d{3}")){
+    public boolean inputRegTextAndNumberAndSymbol(String text) {
+        if (text.matches(REG_TEXT_AND_NUMBER_AND_SYMBOL)) {
             notebook.setTemp(text);
         }
-        return text.matches("^\\(\\d{3}\\)-\\d{2}-\\d{2}-\\d{3}");
+        return text.matches(REG_TEXT_AND_NUMBER_AND_SYMBOL);
     }
 
-    public boolean inputRegEmail (String text){
-        if (text.matches("[\\w.%-]+@[\\w]+\\.[A-Za-z]{2,4}")){
+    public boolean inputRegHomephone(String text) {
+        if (text.matches(REG_HOMEPHONE)) {
             notebook.setTemp(text);
         }
-        return text.matches("[\\w.%-]+@[\\w]+\\.[A-Za-z]{2,4}");
+        return text.matches(REG_HOMEPHONE);
     }
-    public boolean inputRegGroup (String text){
-        if (text.matches("(HOME)|(WORK)|(SHOP)|(SERVICE)")){
+
+    public boolean inputRegCellphone(String text) {
+        if (text.matches(REG_CELLPHONE)) {
             notebook.setTemp(text);
         }
-        return text.matches("(HOME)|(WORK)|(SHOP)|(SERVICE)");
+        return text.matches(REG_CELLPHONE);
     }
 
-    public boolean inputRegData (String text){
-        if (text.matches("(\\d{2})/(\\d{2})/(\\d{4})")){
+    public boolean inputRegEmail(String text) {
+        if (text.matches(REG_EMAIL)) {
             notebook.setTemp(text);
         }
-        return text.matches("(\\d{2})/(\\d{2})/(\\d{4})");
+        return text.matches(REG_EMAIL);
     }
 
+    public boolean inputRegGroup(String text) {
+        if (text.matches(REG_GROUP)) {
+            notebook.setTemp(text);
+        }
+        return text.matches(REG_GROUP);
+    }
 
-
+    public boolean inputRegData(String text) {
+        if (text.matches(REG_DATA)) {
+            notebook.setTemp(text);
+        }
+        return text.matches(REG_DATA);
+    }
 
 
     public String scanner() {
