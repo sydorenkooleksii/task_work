@@ -1,19 +1,18 @@
 package ua.epam;
-
-import ua.epam.Model.Entity.Notebook;
-
-import java.lang.reflect.Field;
+import ua.epam.model.Model;
+import ua.epam.controller.Controller;
 
 public class Main {
 
-    public static void main(String[] args) {
-	// write your code here
-        View view = new View();
-        Notebook notebook = new Notebook();
-        Controller controller = new Controller(notebook,view);
 
-        controller.processUser();
-       view.printMessage(notebook.toString());
+        public static void main(String[] args) {
+            // write your code here
+            View view = new View();
+            Model model = new Model();
+            Controller controller = new Controller(view,model);
+            controller.processUser();
 
-    }
+
+        }
+
 }

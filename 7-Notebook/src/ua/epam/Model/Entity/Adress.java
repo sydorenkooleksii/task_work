@@ -1,7 +1,7 @@
-package ua.epam.Model.Entity;
+package ua.epam.model.entity;
 
 /**
- * Created by Oleksii on 21.09.2016.
+ * Created by Oleksii_Sydorenko on 9/22/2016.
  */
 public class Adress {
 
@@ -10,6 +10,7 @@ public class Adress {
     private String street;
     private String numberOfHouse;
     private String apartment;
+
 
 
     public Adress (String adress){
@@ -21,14 +22,40 @@ public class Adress {
         this.apartment = adressArray[4];
     }
 
+    public String getIndex() {
+        return index;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getNumberOfHouse() {
+        return numberOfHouse;
+    }
+
+    public String getApartment() {
+        return apartment;
+    }
+
+
     @Override
     public String toString() {
-        return "Adress{" +
-                "index='" + index + '\'' +
-                ", city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", numberOfHouse='" + numberOfHouse + '\'' +
-                ", apartment='" + apartment + '\'' +
+        return "Adress:"+ '\n' +
+                "{index=" + index  +
+                ", city=" + city  +
+                ", street=" + street  +
+                ", numberOfHouse=" + numberOfHouse  +
+                ", apartment=" + apartment  +
                 '}';
     }
+
+
+
+
+
 }

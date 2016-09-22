@@ -1,7 +1,7 @@
 package ua.epam;
 
 /**
- * Created by Oleksii_Sydorenko on 9/20/2016.
+ * Created by Oleksii_Sydorenko on 9/22/2016.
  */
 public class View {
 
@@ -28,4 +28,14 @@ public class View {
     public void printMessage(String string){
         System.out.println(string);
     }
+
+    public void concatenationAndPrint(String... message) {
+        StringBuilder concatString = new StringBuilder();
+        for (String str : message) {
+            concatString = concatString.append(str);
+        }
+    }
+
+
+
 }

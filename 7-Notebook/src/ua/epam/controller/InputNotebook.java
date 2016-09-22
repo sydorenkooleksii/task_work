@@ -1,11 +1,12 @@
-package ua.epam.Model.Entity;
+package ua.epam.controller;
 
-import ua.epam.Group;
+import ua.epam.model.entity.Adress;
+import ua.epam.model.entity.Group;
 
 /**
- * Created by Oleksii_Sydorenko on 9/20/2016.
+ * Created by Oleksii_Sydorenko on 9/22/2016.
  */
-public class Notebook {
+public class InputNotebook {
 
     private String name;
     private String surname;
@@ -24,17 +25,20 @@ public class Notebook {
 
 
 
-    private String temp;
-
-
-
-
-    public String getTemp() {
-        return temp;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setTemp(String temp) {
-        this.temp = temp;
+     void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public Adress getAdress() {
+        return adress;
+    }
+
+    public void setAdress(Adress adress) {
+        this.adress = adress;
     }
 
     public String getName() {
@@ -60,6 +64,7 @@ public class Notebook {
     public void setDaddyname(String daddyname) {
         this.daddyname = daddyname;
     }
+
     public String getNickname() {
         return nickname;
     }
@@ -67,6 +72,7 @@ public class Notebook {
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
+
     public String getComment() {
         return comment;
     }
@@ -115,17 +121,6 @@ public class Notebook {
         this.skype = skype;
     }
 
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
-    }
-
-
-
     public String getData() {
         return data;
     }
@@ -140,32 +135,5 @@ public class Notebook {
 
     public void setDataOfChange(String dataOfChange) {
         this.dataOfChange = dataOfChange;
-    }
-    public Adress getAdress() {
-        return adress;
-    }
-
-    public void setAdress(Adress adress) {
-        this.adress = adress;
-    }
-
-    @Override
-    public String toString() {
-        return "Notebook{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", daddyname='" + daddyname + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", comment='" + comment + '\'' +
-                ", homephone='" + homephone + '\'' +
-                ", cellphone='" + cellphone + '\'' +
-                ", cellphone2='" + cellphone2 + '\'' +
-                ", email='" + email + '\'' +
-                ", skype='" + skype + '\'' +
-                ", data='" + data + '\'' +
-                ", dataOfChange='" + dataOfChange + '\'' +
-                ", group=" + group +
-                "," + adress.toString() +
-                '}';
     }
 }
