@@ -20,6 +20,10 @@ public class GasolineCar extends Vehicle {
         this.transmission = transmission;
     }
 
+
+
+
+
     public int getCc() {
         return cc;
     }

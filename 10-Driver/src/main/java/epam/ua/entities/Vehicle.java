@@ -51,6 +51,8 @@ public abstract class Vehicle {
         this.category = category;
     }
 
+
+
     @Override
     public String toString() {
         return "Vehicle{" +

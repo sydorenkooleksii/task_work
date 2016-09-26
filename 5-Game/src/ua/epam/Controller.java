@@ -6,8 +6,6 @@ import java.util.Random;
 
 public class Controller {
 
-
-
     View view;
     Model model;
 

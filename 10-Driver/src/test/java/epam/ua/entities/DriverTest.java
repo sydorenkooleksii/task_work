@@ -25,6 +25,7 @@ public class DriverTest {
         GasolineCar car = new GasolineCar("Tesla", "AM5454KB", "10991099" , DriverLicense.Category.A ,
                 10 , 20 , GasolineCar.Transmission.AUTOMATIC);
         Route route = new Route(car , oleksiiD , "Kyiv" , "Rivne");
+        assertTrue(car.getCategory().equals(DriverLicense.Category.A));
         System.out.println(route);
     }
 
@@ -37,6 +38,7 @@ public class DriverTest {
         GasolineCar car = new GasolineCar("Tesla", "AM5454KB", "10991099" , DriverLicense.Category.C.D ,
                 10 , 20 , GasolineCar.Transmission.AUTOMATIC);
         Route route = new Route(car , oleksiiD , "Kyiv" , "Rivne");
+        assertTrue(car.getCategory().equals(DriverLicense.Category.D));
         System.out.println(route);
     }
 
@@ -52,8 +54,13 @@ public class DriverTest {
         GasolineCar car = new GasolineCar("Tesla", "AM5454KB", "10991099" , DriverLicense.Category.C ,
                 10 , 20 , GasolineCar.Transmission.AUTOMATIC);
         Route route = new Route(car , oleksiiD , "Kyiv" , "Rivne");
+        assertTrue(car.getCategory().equals(DriverLicense.Category.C));
         System.out.println(route);
     }
+
+
+
+
 
 //Дата видачі молодше за дату закінчення
     @Test
@@ -69,8 +76,10 @@ public class DriverTest {
     }
 
 
+
     @Test
     public void creatRouteWithDiferentCategory() throws Exception {
+        expectedException.expect(Exception.class);
         Human oleksii = new Human("Oleksii" , new Date() , Human.Gender.MALE , Human.BloodGroup.SECOND);;
         Driver oleksiiD = new Driver(oleksii ,new DriverLicense(new Date() ,
                 DriverLicense.Category.C , new Date()));

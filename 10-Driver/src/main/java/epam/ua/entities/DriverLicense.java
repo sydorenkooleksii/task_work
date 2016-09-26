@@ -26,6 +26,7 @@ public class DriverLicense {
         this.fromDate = fromDate;
     }
 
+
     public List<Category> getCategories() {
         return categories;
     }
