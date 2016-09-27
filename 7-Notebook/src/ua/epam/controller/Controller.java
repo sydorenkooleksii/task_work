@@ -3,7 +3,6 @@ package ua.epam.controller;
 import ua.epam.View;
 import ua.epam.model.Model;
 import ua.epam.model.entity.Adress;
-import ua.epam.model.entity.CreateNotebook;
 import ua.epam.model.entity.Group;
 
 import java.util.Scanner;
@@ -63,6 +62,7 @@ public class Controller {
     }
 
 
+
     public String inputIntValueWithScanner(Scanner sc, String input, String wrong, String regex) {
 
         boolean ok = true;
@@ -85,5 +85,6 @@ public class Controller {
        }
         return res;
     }
+
 
 }

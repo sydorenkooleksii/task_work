@@ -6,7 +6,9 @@ import ua.epam.model.entity.Group;
 /**
  * Created by Oleksii_Sydorenko on 9/22/2016.
  */
+
 public class InputNotebook {
+
 
     private String name;
     private String surname;
@@ -137,3 +139,4 @@ public class InputNotebook {
         this.dataOfChange = dataOfChange;
     }
 }
+

@@ -1,8 +1,7 @@
 package ua.epam.model;
 
-import ua.epam.View;
 import ua.epam.model.entity.Adress;
-import ua.epam.model.entity.CreateNotebook;
+import ua.epam.model.entity.Notebook;
 import ua.epam.model.entity.Group;
 
 /**
@@ -11,15 +10,15 @@ import ua.epam.model.entity.Group;
 public class Model {
 
 
-    public CreateNotebook createConstructorNotebook(String name, String surname, String daddyname, String nickname,
-                                                    String comment, String homephone, String cellphone, String cellphone2,
-                                                    String email, String skype, String data, String dataOfChange, Group group, Adress adress) {
+    public Notebook createConstructorNotebook(String name, String surname, String daddyname, String nickname,
+                                              String comment, String homephone, String cellphone, String cellphone2,
+                                              String email, String skype, String data, String dataOfChange, Group group, Adress adress) {
 
-        CreateNotebook createNotebook = new CreateNotebook(name, surname, daddyname, nickname,
+        Notebook notebook = new Notebook(name, surname, daddyname, nickname,
                 comment, homephone, cellphone, cellphone2, email, skype, data, dataOfChange, group, adress);
 
 
-        return createNotebook;
+        return notebook;
 
     }
 

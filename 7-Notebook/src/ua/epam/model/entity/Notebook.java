@@ -3,7 +3,7 @@ package ua.epam.model.entity;
 /**
  * Created by Oleksii_Sydorenko on 9/22/2016.
  */
-public class CreateNotebook {
+public class Notebook {
 
 
     private String name;
@@ -21,9 +21,9 @@ public class CreateNotebook {
     private  Group group;
     private Adress adress;
 
-    public CreateNotebook(String name, String surname, String daddyname, String nickname,
-                          String comment, String homephone, String cellphone, String cellphone2,
-                          String email, String skype, String data, String dataOfChange, Group group,Adress adress) {
+    public Notebook(String name, String surname, String daddyname, String nickname,
+                    String comment, String homephone, String cellphone, String cellphone2,
+                    String email, String skype, String data, String dataOfChange, Group group, Adress adress) {
 
 
         this.name = name;
