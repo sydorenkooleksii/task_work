@@ -6,9 +6,19 @@ package epam.ua;
 public class BuilderApp {
     public static void main(String[] args) {
 
-Car car = new CarBuilder()
-        .buildMake("Mercedes").buildTransmission(Transmission.AUTO).buildMaxSpeed(280).build();
-        System.out.println(car.toString());
+//        Car car = new CarBuilder()
+//                .buildMake("Mercedes")
+//                .buildTransmission(Transmission.AUTO)
+//                .buildMaxSpeed(280)
+//                .build();
+//        System.out.println(car.toString());
+//
+
+            Director director = new Director();
+        director.setBuilder(new SubaruBuilder());
+        Car car = director.BuildCar();
+        System.out.println(car);
+
     }
 }
 
@@ -43,29 +53,100 @@ class Car {
     }
 }
 
-class CarBuilder {
-    String m = "Default";
-    Transmission t = Transmission.MANUAL;
-    int s = 120;
+abstract class CarBuilder {
+    Car car;
 
-    CarBuilder buildMake(String m){
-        this.m = m;
-        return this;
+    public void createCar() {
+        car = new Car();
     }
-    CarBuilder buildTransmission(Transmission t){
-        this.t = t;
-        return this;
+
+    abstract void buildMake();
+
+    abstract void buildTransmission();
+
+    abstract void buildMaxSpeed();
+
+    Car getCar() {
+        return car;
     }
-    CarBuilder buildMaxSpeed(int s){
-        this.s = s;
-        return this;
-    }
-Car build (){
-    Car car = new Car();
-    car.setMake(m);
-    car.setTransmission(t);
-    car.setMaxSpeed(s);
-    return car;
 }
 
+class FordMondeoBuilder extends CarBuilder {
+    @Override
+    void buildMake() {
+        car.setMake("Ford Mondeo");
+    }
+
+    @Override
+    void buildTransmission() {
+        car.setTransmission(Transmission.AUTO);
+    }
+
+    @Override
+    void buildMaxSpeed() {
+        car.setMaxSpeed(250);
+    }
 }
+
+class SubaruBuilder extends CarBuilder {
+    @Override
+    void buildMake() {
+        car.setMake("Subaru");
+    }
+
+    @Override
+    void buildTransmission() {
+        car.setTransmission(Transmission.MANUAL);
+    }
+
+    @Override
+    void buildMaxSpeed() {
+        car.setMaxSpeed(320);
+    }
+}
+
+
+class Director {
+    CarBuilder builder;
+
+    void setBuilder(CarBuilder b) {
+        builder = b;
+    }
+
+    Car BuildCar() {
+        builder.createCar();
+        builder.buildMake();
+        builder.buildTransmission();
+        builder.buildMaxSpeed();
+        Car car = builder.getCar();
+        return car;
+    }
+}
+
+
+//class CarBuilder {
+//    String m = "Default";
+//    Transmission t = Transmission.MANUAL;
+//    int s = 120;
+//
+//    CarBuilder buildMake(String m){
+//        this.m = m;
+//        return this;
+//    }
+//    CarBuilder buildTransmission(Transmission t){
+//        this.t = t;
+//        return this;
+//    }
+//    CarBuilder buildMaxSpeed(int s){
+//        this.s = s;
+//        return this;
+//    }
+//Car build (){
+//    Car car = new Car();
+//    car.setMake(m);
+//    car.setTransmission(t);
+//    car.setMaxSpeed(s);
+//    return car;
+//}
+//
+//}
