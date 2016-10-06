@@ -18,42 +18,37 @@ public class MySqlStudentDao implements StudentDao {
     private static final String INSERT = "INSERT student (first_name,last_name,date_of_start) VALUES(?,?,?)";
     private static final String DELETE = "delete from student  where id_Student=?";
     private static final String UPDATE = "update student set first_name=?,last_name=?,date_of_start=? where id_Student=?";
-    private static final String UPDATE_FIRSTNAME = "update student set first_name=? where id_Student=?";
-    private static final String UPDATE_LASTNAME = "update student set last_name=? where id_Student=?";
-    private static final String UPDATE_DATE_OF_START = "update student set date_of_start=? where id_Student=?";
 
     @Override
     public Student find(int id) {
 
         Student student = new Student();
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(PreparedStatement query = connection
-                .prepareStatement(SELECT_STUDENT_BY_ID)){
+        Connection connection = MySqlJdbcDaoFactory.getConnection();
+        try (PreparedStatement query = connection
+                .prepareStatement(SELECT_STUDENT_BY_ID)) {
             query.setInt(1, id);
             ResultSet rs = query.executeQuery();
-            while( rs.next() ){
-                student = getStudentFromResultSet(rs);
-            }
-        }catch(Exception ex){
+            rs.next();
+            student = getStudentFromResultSet(rs);
+
+        } catch (Exception ex) {
             //log
             throw new RuntimeException(ex);
         }
         return student;
-
-
     }
 
     @Override
     public List<Student> findAll() {
         List<Student> result = new ArrayList<>();
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(Statement query = connection.createStatement()){
+        Connection connection = MySqlJdbcDaoFactory.getConnection();
+        try (Statement query = connection.createStatement()) {
 
             ResultSet rs = query.executeQuery(SELECT_ALL_GOODS);
-            while( rs.next() ){
+            while (rs.next()) {
                 result.add(getStudentFromResultSet(rs));
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             //log
             throw new RuntimeException(ex);
         }
@@ -73,9 +68,9 @@ public class MySqlStudentDao implements StudentDao {
     @Override
     public void update(Student entity) {
 
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(PreparedStatement query = connection
-                .prepareStatement(UPDATE)){
+        Connection connection = MySqlJdbcDaoFactory.getConnection();
+        try (PreparedStatement query = connection
+                .prepareStatement(UPDATE)) {
 
 
             query.setString(1, entity.getFirstName());
@@ -84,126 +79,57 @@ public class MySqlStudentDao implements StudentDao {
             query.setInt(4, entity.getIdStudent());
             query.executeUpdate();
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
             //log
             throw new RuntimeException(ex);
         }
     }
-
-    public void updateFirstName(int id,String name) {
-
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(PreparedStatement query = connection
-                .prepareStatement(UPDATE_FIRSTNAME)){
-
-            query.setString(1, name);
-            query.setInt(2, id);
-            query.executeUpdate();
-
-        }catch(Exception ex){
-            //log
-            throw new RuntimeException(ex);
-        }
-    }
-
-    public void updateLastName(int id,String name) {
-
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(PreparedStatement query = connection
-                .prepareStatement(UPDATE_LASTNAME)){
-
-            query.setString(1, name);
-            query.setInt(2, id);
-            query.executeUpdate();
-
-        }catch(Exception ex){
-            //log
-            throw new RuntimeException(ex);
-        }
-    }
-
-    public void updateDateOfStart(int id,String dateOfStart) {
-
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(PreparedStatement query = connection
-                .prepareStatement(UPDATE_DATE_OF_START)){
-
-            query.setString(1, dateOfStart);
-            query.setInt(2, id);
-            query.executeUpdate();
-
-        }catch(Exception ex){
-            //log
-            throw new RuntimeException(ex);
-        }
-    }
-
 
     @Override
     public void delete(int id) {
 
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(PreparedStatement query = connection
-                .prepareStatement(DELETE)){
+        Connection connection = MySqlJdbcDaoFactory.getConnection();
+        try (PreparedStatement query = connection
+                .prepareStatement(DELETE)) {
             query.setInt(1, id);
             query.executeUpdate();
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
             //log
             throw new RuntimeException(ex);
         }
     }
 
-
-
     @Override
     public void insert(Student entity) {
 
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(PreparedStatement query = connection
-                .prepareStatement(INSERT)){
+        Connection connection = MySqlJdbcDaoFactory.getConnection();
+        try (PreparedStatement query = connection
+                .prepareStatement(INSERT)) {
             query.setString(1, entity.getFirstName());
             query.setString(2, entity.getLastName());
             query.setString(3, entity.getDateOfStart());
             query.executeUpdate();
 
-        }catch(Exception ex){
+        } catch (Exception ex) {
             //log
             throw new RuntimeException(ex);
         }
     }
-
-
-    public void insert(String firstName,String lastName, String dateOfStart) {
-
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(PreparedStatement query = connection
-                .prepareStatement(INSERT)){
-            query.setString(1, firstName);
-            query.setString(2, lastName);
-            query.setString(3, dateOfStart);
-            query.executeUpdate();
-
-        }catch(Exception ex){
-            //log
-            throw new RuntimeException(ex);
-        }
-    }
-
 
     @Override
     public Student findByName(String name) {
 
         Student student = new Student();
-        Connection connection =  MySqlJdbcDaoFactory.getConnection();
-        try(PreparedStatement query = connection
-                .prepareStatement(SELECT_STUDENT_BY_NAME)){
+        Connection connection = MySqlJdbcDaoFactory.getConnection();
+        try (PreparedStatement query = connection
+                .prepareStatement(SELECT_STUDENT_BY_NAME)) {
             query.setString(1, name);
             ResultSet rs = query.executeQuery();
-            while( rs.next() ){
+            while (rs.next()) {
                 student = getStudentFromResultSet(rs);
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             //log
             throw new RuntimeException(ex);
         }
