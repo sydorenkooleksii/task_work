@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+<students_list>
+    <student id="1">
+        <first_name>Олексій</first_name>
+        <last_name>Карпенко</last_name>
+        <date_of_start>2008-7-04</date_of_start>
+    </student>
+    <student id="2">
+        <first_name>Артем</first_name>
+        <last_name>Зінченко</last_name>
+        <date_of_start>2008-7-04</date_of_start>
+    </student>
+    <student id="3">
+        <first_name>Андрій</first_name>
+        <last_name>Потапенко</last_name>
+        <date_of_start>2008-7-04</date_of_start>
+    </student>
+</students_list>
+</students>
