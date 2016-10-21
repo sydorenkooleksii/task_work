@@ -1,0 +1,39 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+       http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+       version="2.4">
+
+	<display-name>Archetype Created Web Application</display-name>
+
+
+	<servlet>
+		<servlet-name>ShowAllStudents</servlet-name>
+		<servlet-class>ua.ep.controller.ShowAllStudents</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>FindByName</servlet-name>
+		<servlet-class>ua.ep.controller.FindByName</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Servlet</servlet-name>
+		<servlet-class>ua.ep.controller.Servlet</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>ShowAllStudents</servlet-name>
+		<url-pattern>/ShowAllStudents</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FindByName</servlet-name>
+		<url-pattern>/FindByName</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Servlet</servlet-name>
+		<url-pattern>/Servlet</url-pattern>
+	</servlet-mapping>
+</web-app>
+  
+
+
