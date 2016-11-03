@@ -33,7 +33,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${resourcePath}testPositive.xml</suiteXmlFile>
+                        <suiteXmlFile>${resourcePath}testSmoke.xml</suiteXmlFile>
                         <!--<suiteXmlFile>${resourcePath}testng.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
