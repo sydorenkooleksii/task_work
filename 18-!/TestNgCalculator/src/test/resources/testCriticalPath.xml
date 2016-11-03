@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test CriticalPath">
+
+    <test name="CriticalPath">
+        <groups>
+            <run>
+                <include name="criticalPath"/>
+                <include name="first"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="test.NegativeCalculatorTests"/>
+            <class name="test.PositiveCalculatorTests"/>
+
+        </classes>
+    </test>
+
+</suite>
