@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Runner" parallel="false">
+
+    <suite-files>
+        <suite-file path="./testPositive.xml"/>
+        <suite-file path="./testNegative.xml"/>
+    </suite-files>
+</suite>
