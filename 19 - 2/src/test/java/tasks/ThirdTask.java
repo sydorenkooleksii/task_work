@@ -33,7 +33,7 @@ public class ThirdTask {
     }
 
 
-    @Test(groups = {"positive"})
+    @Test
     public void test() {
         GetDriver.getdriver().get(MAIN_PAGE);
         WebElement elementDrop = GetDriver.getdriver().findElement(By.id(ID_DROPLIST));

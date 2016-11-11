@@ -26,7 +26,7 @@ public class SecondTask {
         GetDriver.getdriver();
     }
 
-    @Test(groups = {"positive"})
+    @Test
     public void test() throws IOException {
         GetDriver.getdriver().get(MAIN_PAGE);
         WebElement elementDownload = GetDriver.getdriver().findElement(By.id(ID_DOWNLOAD));

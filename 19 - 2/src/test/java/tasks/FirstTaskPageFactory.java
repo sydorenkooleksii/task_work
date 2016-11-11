@@ -24,7 +24,7 @@ public class FirstTaskPageFactory {
     }
 
 
-    @Test(groups = {"positive"})
+    @Test
     public void test(){
 
         GetDriver.getdriver().get(URL_MAIN_PAGE);
