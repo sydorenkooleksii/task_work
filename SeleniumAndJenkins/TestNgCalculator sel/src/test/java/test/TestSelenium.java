@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * Created by Oleksii_Sydorenko on 11/14/2016.
  */
 public class TestSelenium {
-    
+
     public final String MAIN_PAGE = "http://www.screwfix.com";
 
     public final String MAIN_PAGE_2 = "https://www.google.com.ua";
@@ -33,7 +33,7 @@ public class TestSelenium {
     private static WebDriver driver;
 
 @BeforeClass
-public void test_2() throws InterruptedException {
+public void setup() throws InterruptedException {
 
     driver = new ChromeDriver();
 
@@ -44,7 +44,7 @@ public void test_2() throws InterruptedException {
 }
 
     @Test(groups = "selenium")
-    public void test() throws IOException, InterruptedException {
+    public void test_1() throws IOException, InterruptedException {
 
 
         driver.findElement(By.id("lst-ib")).sendKeys("epam");
