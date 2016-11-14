@@ -1,12 +1,10 @@
-package test.java;
+package test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -15,7 +13,9 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Oleksii_Sydorenko on 11/14/2016.
  */
-public class FirstTask {
+public class TestSelenium {
+
+
     public final String MAIN_PAGE = "http://www.screwfix.com";
     public final String ID_BUILDING = "firstLevelCat_7";
     public final String ID_ROOFING = "sub_category_image_3";
@@ -27,18 +27,13 @@ public class FirstTask {
     public final String ID_WINDOW_INBASKET = "trolley_page_product_quote_number_1";
     private static WebDriver driver;
 
-    @BeforeClass
 
-    public void set_up() {
+
+    @Test(groups = "selenium")
+    public void test() throws IOException, InterruptedException {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-    }
-
-
-    @Test()
-    public void test() throws IOException, InterruptedException {
-
         driver.get(MAIN_PAGE);
         Thread.sleep(5000);
         WebElement elementBuilding = driver.findElement(By.id(ID_BUILDING));
@@ -55,10 +50,8 @@ public class FirstTask {
         elementCheckout.click();
         WebElement elementBuyInBasket = driver.findElement(By.id(ID_WINDOW_INBASKET));
         Assert.assertTrue(elementBuy.contains(elementBuyInBasket.getText()));
+        driver.quit();
     }
 
-    @AfterClass
-    public void exit(){
-        driver.close();
-    }
+
 }
