@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class TestSelenium {
 
 
-    public final String MAIN_PAGE = "http://www.screwfix.com";
+    public final String MAIN_PAGE = "https://www.google.com";
     public final String ID_BUILDING = "firstLevelCat_7";
     public final String ID_ROOFING = "sub_category_image_3";
     public final String ID_ROOF_WINDOWS = "sub_category_image_0";
@@ -36,22 +36,22 @@ public class TestSelenium {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get(MAIN_PAGE);
         driver.manage().window().maximize();
-        Thread.sleep(5000);
-        WebElement elementBuilding = driver.findElement(By.id(ID_BUILDING));
-        Thread.sleep(5000);
-        elementBuilding.click();
-        WebElement elementRoofing = driver.findElement(By.id(ID_ROOFING));
-        elementRoofing.click();
-        WebElement elementRoof = driver.findElement(By.id(ID_ROOF_WINDOWS));
-        elementRoof.click();
-        String elementBuy = driver.findElement(By.xpath(XPATH_WINDOW_INROOF)).getText();
-        WebElement elementDeliver = driver.findElement(By.id(ID_DELIVER));
-        elementDeliver.click();
-        WebElement elementCheckout = driver.findElement(By.linkText(LINKTEXT_CHECKOUT));
-        elementCheckout.click();
-        WebElement elementBuyInBasket = driver.findElement(By.id(ID_WINDOW_INBASKET));
-        Assert.assertTrue(elementBuy.contains(elementBuyInBasket.getText()));
-        driver.quit();
+//        Thread.sleep(5000);
+//        WebElement elementBuilding = driver.findElement(By.id(ID_BUILDING));
+//        Thread.sleep(5000);
+//        elementBuilding.click();
+//        WebElement elementRoofing = driver.findElement(By.id(ID_ROOFING));
+//        elementRoofing.click();
+//        WebElement elementRoof = driver.findElement(By.id(ID_ROOF_WINDOWS));
+//        elementRoof.click();
+//        String elementBuy = driver.findElement(By.xpath(XPATH_WINDOW_INROOF)).getText();
+//        WebElement elementDeliver = driver.findElement(By.id(ID_DELIVER));
+//        elementDeliver.click();
+//        WebElement elementCheckout = driver.findElement(By.linkText(LINKTEXT_CHECKOUT));
+//        elementCheckout.click();
+//        WebElement elementBuyInBasket = driver.findElement(By.id(ID_WINDOW_INBASKET));
+//        Assert.assertTrue(elementBuy.contains(elementBuyInBasket.getText()));
+//        driver.quit();
     }
 
 
