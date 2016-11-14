@@ -33,17 +33,10 @@ public class TestSelenium {
     public final String ID_WINDOW_INBASKET = "trolley_page_product_quote_number_1";
     private static WebDriver driver;
 
-@BeforeMethod
-public void setup() throws InterruptedException {
-
-    driver = new ChromeDriver();
-
-
-    Thread.sleep(5000);
-}
 
     @Test(groups = "selenium")
-    public void test_1() throws IOException, InterruptedException {
+    public void test() throws IOException, InterruptedException {
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get(MAIN_PAGE_2);
         driver.manage().window().maximize();
@@ -51,20 +44,10 @@ public void setup() throws InterruptedException {
         driver.findElement(By.id("lst-ib")).sendKeys("epam");
 
         Thread.sleep(2000);
-    }
-        @Test(groups = "selenium")
-        public void test_3() {
+
             driver.findElement(By.name("btnG")).click();
             WebElement firstResult = (new WebDriverWait(driver, 3)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h3.r>a")));
-
-            System.out.println(firstResult.getText());
-        }
-
-        @Test(groups = "selenium")
-        public void test_4() {
-            WebElement firstResult2 = (new WebDriverWait(driver, 3)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h3.r>a")));
-
-            Assert.assertEquals("EPAM | Разработка ПО", firstResult2.getText());
+            Assert.assertEquals("EPAM | Разработка ПО", firstResult.getText());
         }
 //        WebElement elementBuilding = driver.findElement(By.id(ID_BUILDING));
 //        Thread.sleep(5000);
