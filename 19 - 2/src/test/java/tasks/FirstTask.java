@@ -34,9 +34,12 @@ public class FirstTask {
 
 
     @Test(groups = {"positive"})
-    public void test() throws IOException {
+    public void test() throws IOException, InterruptedException {
+		
         GetDriver.getdriver().get(MAIN_PAGE);
+		Thread.sleep(5000);
         WebElement elementBuilding = GetDriver.getdriver().findElement(By.id(ID_BUILDING));
+		Thread.sleep(5000);
         elementBuilding.click();
         WebElement elementRoofing = GetDriver.getdriver().findElement(By.id(ID_ROOFING));
         elementRoofing.click();
