@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -16,8 +17,7 @@ import java.util.concurrent.TimeUnit;
  * Created by Oleksii_Sydorenko on 11/14/2016.
  */
 public class TestSelenium {
-
-
+    
     public final String MAIN_PAGE = "http://www.screwfix.com";
 
     public final String MAIN_PAGE_2 = "https://www.google.com.ua";
@@ -32,28 +32,39 @@ public class TestSelenium {
     public final String ID_WINDOW_INBASKET = "trolley_page_product_quote_number_1";
     private static WebDriver driver;
 
+@BeforeClass
+public void test_2() throws InterruptedException {
 
+    driver = new ChromeDriver();
+
+    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+    driver.get(MAIN_PAGE_2);
+    driver.manage().window().maximize();
+    Thread.sleep(5000);
+}
 
     @Test(groups = "selenium")
     public void test() throws IOException, InterruptedException {
-        driver = new ChromeDriver();
 
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.get(MAIN_PAGE_2);
-        driver.manage().window().maximize();
-        Thread.sleep(5000);
 
         driver.findElement(By.id("lst-ib")).sendKeys("epam");
 
         Thread.sleep(2000);
+    }
+        @Test(groups = "selenium")
+        public void test_3() {
+            driver.findElement(By.name("btnG")).click();
+            WebElement firstResult = (new WebDriverWait(driver, 3)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h3.r>a")));
 
-        driver.findElement(By.name("btnG")).click();
-        WebElement firstResult = (new WebDriverWait(driver, 3)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h3.r>a")));
+            System.out.println(firstResult.getText());
+        }
 
-        System.out.println(firstResult.getText());
+        @Test(groups = "selenium")
+        public void test_4() {
+            WebElement firstResult2 = (new WebDriverWait(driver, 3)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h3.r>a")));
 
-        Assert.assertEquals("EPAM | Разработка ПО", firstResult.getText());
-
+            Assert.assertEquals("EPAM | Разработка ПО", firstResult2.getText());
+        }
 //        WebElement elementBuilding = driver.findElement(By.id(ID_BUILDING));
 //        Thread.sleep(5000);
 //        elementBuilding.click();
@@ -70,6 +81,3 @@ public class TestSelenium {
 //        Assert.assertTrue(elementBuy.contains(elementBuyInBasket.getText()));
 //        driver.quit();
     }
-
-
-}
