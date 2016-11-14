@@ -32,9 +32,10 @@ public class TestSelenium {
     @Test(groups = "selenium")
     public void test() throws IOException, InterruptedException {
         driver = new ChromeDriver();
-        driver.manage().window().maximize();
+
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get(MAIN_PAGE);
+        driver.manage().window().maximize();
         Thread.sleep(5000);
         WebElement elementBuilding = driver.findElement(By.id(ID_BUILDING));
         Thread.sleep(5000);
