@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -32,20 +33,20 @@ public class TestSelenium {
     public final String ID_WINDOW_INBASKET = "trolley_page_product_quote_number_1";
     private static WebDriver driver;
 
-@BeforeClass
+@BeforeMethod
 public void setup() throws InterruptedException {
 
     driver = new ChromeDriver();
 
-    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-    driver.get(MAIN_PAGE_2);
-    driver.manage().window().maximize();
+
     Thread.sleep(5000);
 }
 
     @Test(groups = "selenium")
     public void test_1() throws IOException, InterruptedException {
-
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.get(MAIN_PAGE_2);
+        driver.manage().window().maximize();
 
         driver.findElement(By.id("lst-ib")).sendKeys("epam");
 
