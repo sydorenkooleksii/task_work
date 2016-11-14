@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -46,7 +48,11 @@ public class TestSelenium {
         Thread.sleep(2000);
 
         driver.findElement(By.name("btnG")).click();
+        WebElement firstResult = (new WebDriverWait(driver, 3)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("h3.r>a")));
 
+        System.out.println(firstResult.getText());
+
+        Assert.assertEquals("EPAM | Разработка ПО", firstResult.getText());
 
 //        WebElement elementBuilding = driver.findElement(By.id(ID_BUILDING));
 //        Thread.sleep(5000);
