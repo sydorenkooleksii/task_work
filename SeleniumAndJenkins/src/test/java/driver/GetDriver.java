@@ -27,6 +27,9 @@ public class GetDriver {
             driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
     }
 
+
+
+    
     public static void getQuitDriver (){
         driver.quit();
     }
