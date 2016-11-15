@@ -15,30 +15,28 @@ import java.util.concurrent.TimeUnit;
  * Created by Oleksii_Sydorenko on 11/8/2016.
  */
 public class GetDriver {
-//    private static WebDriver driver;
-//
-//    public static WebDriver getdriver (){
-//        return driver;
-//    }
-//
-//    public static void getNewDriver (){
-//            driver = new ChromeDriver();
-//            driver.manage().window().maximize();
-//            driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-//    }
-//
-//    public static void getQuitDriver (){
-//        driver.quit();
-//    }
-//
-//
-//
-//    public static boolean isElementPresent(By by) throws IOException {
-//        boolean screen = driver.findElements(by).size() > 0;
-//        if(!screen){
-//            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//            FileUtils.copyFile(scrFile, new File("D:\\screenshot.jpg"));
-//        }
-//        return screen;
-//    }
+    private static WebDriver driver;
+
+    public static WebDriver getdriver (){
+        return driver;
+    }
+
+    public static void getNewDriver (){
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+    }
+
+    public static void getQuitDriver (){
+        driver.quit();
+    }
+
+    public static boolean isElementPresent(By by) throws IOException {
+        boolean screen = driver.findElements(by).size() > 0;
+        if(!screen){
+            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(scrFile, new File("D:\\screenshot.jpg"));
+        }
+        return screen;
+    }
 }

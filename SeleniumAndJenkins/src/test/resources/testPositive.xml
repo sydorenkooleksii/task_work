@@ -6,8 +6,10 @@
     <test name="Positive">
 
         <classes>
-            <class name="tasks.FirstTask"/>
-            <class name="tasks.FirstTaskPageFactory"/>
+            <!--<class name="tasks.FirstTask"/>-->
+            <!--<class name="tasks.FirstTaskPageFactory"/>-->
+            <class name="tasks.SecondTask"/>
+            <class name="tasks.ThirdTask"/>
         </classes>
     </test>
 
