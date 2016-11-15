@@ -25,7 +25,7 @@ public class ThirdTask {
     public final String XPATH_PAGE = "//body";
     WebDriverWait wait;
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeTest
     public void set_up() {
         GetDriver.getNewDriver();
         wait  = new WebDriverWait(GetDriver.getdriver(), 5);

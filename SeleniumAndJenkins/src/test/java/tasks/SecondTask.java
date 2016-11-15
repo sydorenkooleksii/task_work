@@ -19,7 +19,7 @@ public class SecondTask {
     public final String XPATH_VERIFY_FIRST_TABLE = "//table[1][contains(.,'Ruby')]";
     public final String XPATH_VERIFY_SECOND_TABLE = "//table[2][contains(.,'Ruby')]";
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeTest
     public void set_up() {
         GetDriver.getNewDriver();
     }
