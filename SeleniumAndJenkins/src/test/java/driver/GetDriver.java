@@ -29,7 +29,7 @@ public class GetDriver {
 
 
 
-    
+
     public static void getQuitDriver (){
         driver.quit();
     }
