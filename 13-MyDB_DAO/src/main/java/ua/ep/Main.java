@@ -24,14 +24,15 @@ public class Main {
 //
 //        System.out.println(database.toString());
 
-
-        DaoFactory factory = DaoFactory.getInstance();
-        StudentDao dao = factory.createStudentDao();
-        System.out.println(dao.find(2));
-        System.out.println(dao.findByName("Олексій"));
-        Student student = new Student();
+//
+//        DaoFactory factory = DaoFactory.getInstance();
+//        StudentDao dao = factory.createStudentDao();
+//        System.out.println(dao.find(2));
+//        System.out.println(dao.findByName("Олексій"));
+//        Student student = new Student("Mike","b","2008-08-08");
 //        dao.delete(11);
-//      dao.insert(student,"Олексій","Олексій","2009-04-8");
+//      dao.insert(student);
         // write your code here
+
     }
 }
