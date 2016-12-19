@@ -1,21 +1,18 @@
-package com.ep.pages;
+package epam.pages;
 
 
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
-import org.openqa.selenium.WebDriver;
+import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class SearchResultPage extends Page {
+public class SearchResultPage extends PageObject {
 
     @FindBy(xpath = "//div[@class='productListItem']")
     List<WebElement> listOfProducts;
 
-    public SearchResultPage(WebDriver driver) {
-        super(driver);
-    }
 
     public void addToCartSearchedProduct(String product) {
         for (WebElement elem : listOfProducts) {

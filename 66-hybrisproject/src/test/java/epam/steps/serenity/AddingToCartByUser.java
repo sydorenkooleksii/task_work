@@ -1,17 +1,17 @@
-package com.ep.steps.serenity;
+package epam.steps.serenity;
 
 
-import com.ep.pages.CurrentPage;
-import com.ep.pages.HomePage;
-import com.ep.pages.LoginPage;
-import com.ep.pages.SearchResultPage;
+
+import epam.pages.HomePage;
+import epam.pages.LoginPage;
+import epam.pages.SearchResultPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 
 public class AddingToCartByUser extends ScenarioSteps {
 
-    CurrentPage currentPage;
+
     HomePage homePage;
     SearchResultPage searchResultPage;
     LoginPage loginPage;
@@ -28,12 +28,12 @@ public class AddingToCartByUser extends ScenarioSteps {
 
     @Step
     public void clickAddToCart() {
-        currentPage.$(".//*[@id='addToCartButton']").click();
+        homePage.$(".//*[@id='addToCartButton']").click();
     }
 
     @Step
     public void clickSignInLink(){
-        currentPage.openLoginForm();
+        homePage.openLoginForm();
     }
 
     @Step
@@ -59,11 +59,11 @@ public class AddingToCartByUser extends ScenarioSteps {
 
     @Step
     public void openCart() {
-        currentPage.openCart();
+        homePage.openCart();
     }
 
     @Step
     public void signOut() {
-        currentPage.signOutUser();
+        homePage.signOutUser();
     }
 }

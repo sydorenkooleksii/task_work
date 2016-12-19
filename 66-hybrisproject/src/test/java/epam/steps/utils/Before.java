@@ -1,4 +1,4 @@
-package ep.com.utils;
+package epam.steps.utils;
 
 import org.jbehave.core.annotations.BeforeStory;
 

@@ -1,11 +1,12 @@
-package com.ep.pages;
+package epam.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebDriver;
 
 
-    public class LoginPage extends Page{
+    public class LoginPage extends PageObject {
 
         @FindBy(xpath = ".//*[@id='j_username']")
         WebElementFacade loginField;
@@ -16,9 +17,7 @@ import org.openqa.selenium.WebDriver;
         @FindBy(xpath = ".//*[@id='loginForm']/div[2]/button")
         WebElementFacade loginButton;
 
-        public LoginPage(WebDriver driver) {
-            super(driver);
-        }
+
 
         public void setLogin(String email) {
             loginField.sendKeys(email);

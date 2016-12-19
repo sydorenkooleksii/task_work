@@ -1,4 +1,4 @@
-package ep.com;
+package epam;
 
 
 import net.serenitybdd.jbehave.SerenityStories;

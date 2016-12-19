@@ -1,12 +1,10 @@
-package ep.com.jbehave.definitionsteps;
+package epam.steps.jbehave.definitionsteps;
 
 
-import com.ep.pages.CartPage;
-import com.ep.pages.CurrentPage;
-import com.ep.steps.serenity.AddingToCartByUser;
+import epam.pages.CartPage;
+import epam.pages.CurrentPage;
+import epam.steps.serenity.AddingToCartByUser;
 import net.thucydides.core.annotations.Steps;
-import net.thucydides.core.annotations.WithTag;
-import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
