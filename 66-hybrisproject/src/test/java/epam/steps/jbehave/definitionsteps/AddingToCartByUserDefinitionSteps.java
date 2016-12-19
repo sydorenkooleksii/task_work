@@ -1,13 +1,13 @@
 package epam.steps.jbehave.definitionsteps;
 
 
-import epam.pages.CartPage;
-import epam.pages.CurrentPage;
+import epam.pages.HomePage;
 import epam.steps.serenity.AddingToCartByUser;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -15,9 +15,8 @@ public class AddingToCartByUserDefinitionSteps {
 
     @Steps
     AddingToCartByUser user;
+HomePage homePage;
 
-    CurrentPage currentPage;
-    CartPage cartPage;
 
 
     @Given("web visitor is on the home page")
@@ -38,7 +37,7 @@ public class AddingToCartByUserDefinitionSteps {
 
     @Then("web visitor should be redirected to login page")
     public void shouldRedirectToLoginPage(){
-        assertThat(currentPage.getTitle()).contains("Login | Electronics Site");
+        assertThat(homePage.getTitle()).contains("Login | Electronics Site");
     }
 
     @Given("web visitor search '$product'")
@@ -50,7 +49,7 @@ public class AddingToCartByUserDefinitionSteps {
     @Then("'$product' should be added to cart")
     public void productShouldBeInTheCart(String product){
         user.openCart();
-        assertThat(cartPage.containsText(product));
+        assertThat(homePage.containsText(product));
     }
 
     @Given("web visitor signed in")
@@ -71,7 +70,7 @@ public class AddingToCartByUserDefinitionSteps {
 
     @Then("user is on the '$product' page")
     public void productShouldBeOnProductPage(String product){
-        assertThat(currentPage.containsText(product));
+        assertThat(homePage.containsText(product));
     }
 
     @Then("user sign out")
